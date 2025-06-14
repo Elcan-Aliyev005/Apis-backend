@@ -17,7 +17,7 @@ const port = process.env.PORT || 5000;
 
 
 app.get('/', (req, res) => {
-    res.redirect("https://elcan-aliyev-api-collection.vercel.app/")
+    res.send("Welcome")
 })
 
 
