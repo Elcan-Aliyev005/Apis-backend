@@ -7,8 +7,12 @@ const Pizza = require("../models/pizza-schema");
 // 🔸 Bütün pizzaları çək
 PizzaRouter.get("/", async (req, res) => {
   try {
-    const pizzas = await Pizza.find();
-    res.json(pizzas);
+    // const pizzas = await Pizza.find();
+    const pizzas = await Pizza.find().select("-__v -createdAt -updatedAt");
+
+    res.json({
+      pizzas
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
